@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PartsManagerController">
+   <children>
+      <SplitPane dividerPositions="0.38825214899713467" layoutX="200.0" layoutY="99.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <StackPane fx:id="partsPane" layoutX="4.0" layoutY="78.0" prefHeight="327.0" prefWidth="263.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <children>
+                        <ListView fx:id="processorList" prefHeight="272.0" prefWidth="207.0" />
+                        <ListView fx:id="videocardList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="motherboardList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="ramList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="psuList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="dataStorageList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="computerBoxList" prefHeight="306.0" prefWidth="263.0" />
+                        <AnchorPane fx:id="emptyPane" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="145.0" prefHeight="11.0" prefWidth="252.0" text="Здесь будут располагаться комплектующие">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+                  <ComboBox fx:id="switchPartType" layoutX="14.0" layoutY="14.0" prefWidth="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="addButton" layoutX="185.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAdd" text="Добавить" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="changeButton" layoutX="211.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleChange" text="Изменить" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="7.0" />
+                  <Button fx:id="removeButton" layoutX="14.0" layoutY="366.0" mnemonicParsing="false" onAction="#handleRemove" text="Удалить" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="7.0" />
+                  <Button fx:id="loadButton" layoutX="11.0" layoutY="384.0" mnemonicParsing="false" text="Загрузить из файла" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" />
+                  <Button fx:id="saveButton" layoutX="144.0" layoutY="384.0" mnemonicParsing="false" text="Загрузить в файл" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="7.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <StackPane layoutX="6.0" layoutY="144.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <GridPane fx:id="processorChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newProcessorName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newProcessorPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmProcessor" mnemonicParsing="false" onAction="#changeProcessor" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label text="Тактовая частота" GridPane.rowIndex="2" />
+                              <Label text="Количество ядер" GridPane.rowIndex="3" />
+                              <Label text="Размер кэша" GridPane.rowIndex="4" />
+                              <Label text="Техпроцесс" GridPane.rowIndex="5" />
+                              <Label text="Архитектура" GridPane.rowIndex="6" />
+                              <TextField fx:id="newProcessorClock" promptText="Тактовая частота, ГГц" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newProcessorCores" promptText="Кол-во ядер" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newProcessorCache" promptText="Объем кэша, Мб" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="newProcessorTechProcess" promptText="Техпроцесс, нм" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="newProcessorArchitecture" promptText="Архитектура" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="videocardInfoPane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Базовая частота" GridPane.rowIndex="3" />
+                              <Label text="Количество вентиляторов" GridPane.rowIndex="4" />
+                              <Label text="Название" />
+                              <Label text="Объем памяти" GridPane.rowIndex="2" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label text="Интерфейс" GridPane.rowIndex="5" />
+                              <Label fx:id="videocardNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="videocardPriceLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="videocardMemoryLabel" prefHeight="18.0" prefWidth="107.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="videocardClockLabel" prefHeight="18.0" prefWidth="96.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="videocardFansLabel" prefHeight="18.0" prefWidth="108.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="videocardInterfaceLabel" prefHeight="18.0" prefWidth="95.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="videocardChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newVideocardName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newVideocardPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmVideocard" mnemonicParsing="false" onAction="#changeVideocard" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Интерфейс" GridPane.rowIndex="2" />
+                              <Label text="Объем памяти" GridPane.rowIndex="3" />
+                              <Label text="Базовая частота" GridPane.rowIndex="4" />
+                              <Label text="Количество вентиляторов" GridPane.rowIndex="5" />
+                              <TextField fx:id="newVideocardInterface" promptText="Интерфейс видеокарты" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newVideocardMemory" promptText="Объем видеопамяти, мб" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newVideocardClock" promptText="Частота, МГц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="newVideocardFans" promptText="Количество вентиляторов" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="motherboardInfoPane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label fx:id="motherboardNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="motherboardPriceLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Сокет" GridPane.rowIndex="2" />
+                              <Label text="Тип памяти" GridPane.rowIndex="3" />
+                              <Label text="Максимальный объем памяти" GridPane.rowIndex="4" />
+                              <Label text="Количество портов USB" GridPane.rowIndex="5" />
+                              <Label fx:id="motherboardSocket" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="motherboardMemoryType" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="motherboardMaxMemory" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="motherboardUSB" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="motherboardChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newMotherboardName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newMotherboardPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmMotherboard" mnemonicParsing="false" onAction="#changeMotherboard" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Сокет" GridPane.rowIndex="2" />
+                              <Label text="Тип памяти" GridPane.rowIndex="3" />
+                              <Label text="Максимальный объем памяти" GridPane.rowIndex="4" />
+                              <Label text="Количество портов USB" GridPane.rowIndex="5" />
+                              <TextField fx:id="newMotherboardSocket" promptText="Сокет" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newMotherboardMemoryType" promptText="Тип памяти" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newMotherboardMaxMemory" promptText="Максимальный объем памяти, Гб" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="newMotherboardUSB" promptText="Общее кол-во USB портов" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="ramInfoPane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label fx:id="ramNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="ramPriceLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Объем памяти" GridPane.rowIndex="2" />
+                              <Label text="Тип памяти" GridPane.rowIndex="3" />
+                              <Label text="Частота памяти" GridPane.rowIndex="4" />
+                              <Label fx:id="ramMemory" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="ramMemoryType" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="ramMemoryClock" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="ramChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newRamName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newRamPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmRam" mnemonicParsing="false" onAction="#changeRam" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Объем памяти" GridPane.rowIndex="2" />
+                              <Label text="Тип памяти" GridPane.rowIndex="3" />
+                              <Label text="Частота памяти" GridPane.rowIndex="4" />
+                              <TextField fx:id="newRamMemory" promptText="Объем памяти, Мб" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newRamMemoryType" promptText="Тип памяти" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newRamMemoryClock" promptText="Частота памяти, МГц" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="psuInfoPane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label fx:id="psuNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="psuPriceLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Мощность" GridPane.rowIndex="2" />
+                              <Label text="КПД" GridPane.rowIndex="3" />
+                              <Label text="Размер вентилятора" GridPane.rowIndex="4" />
+                              <Label text="Максимальный ток по линии" GridPane.rowIndex="5" />
+                              <Label fx:id="psuCapacity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="psuEfficiency" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="psuFanSize" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="psuMaxAmperage" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="psuChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newPsuName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newPsuPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmPsu" mnemonicParsing="false" onAction="#changePsu" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Мощность" GridPane.rowIndex="2" />
+                              <Label text="КПД" GridPane.rowIndex="3" />
+                              <Label text="Размер вентилятора" GridPane.rowIndex="4" />
+                              <Label text="Максимальный ток по линии" GridPane.rowIndex="5" />
+                              <TextField fx:id="newPsuCapacity" promptText="Мощность, Вт" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newPsuEfficiency" promptText="КПД, %" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newPsuFanSize" promptText="Размер вентилятора, мм" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="newPsuMaxAmperage" promptText="Максимальный ток, А" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="dataStorageInfoPane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label fx:id="dataStorageNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="dataStoragePriceLabel" prefHeight="18.0" prefWidth="95.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Тип" GridPane.rowIndex="2" />
+                              <Label text="Объем памяти" GridPane.rowIndex="3" />
+                              <Label text="Интерфейс" GridPane.rowIndex="4" />
+                              <Label text="Буфер" GridPane.rowIndex="5" />
+                              <Label fx:id="dataStorageType" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="dataStorageCapacity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="dataStorageInterface" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="dataStorageBuffer" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="dataStorageChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newDataStorageName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newDataStoragePrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmDataStorage" mnemonicParsing="false" onAction="#changeDataStorage" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Тип" GridPane.rowIndex="2" />
+                              <Label text="Объем памяти" GridPane.rowIndex="3" />
+                              <Label text="Интерфейс" GridPane.rowIndex="4" />
+                              <Label text="Буфер" GridPane.rowIndex="5" />
+                              <TextField fx:id="newDataStorageType" promptText="Тип хранилища, SSD или HDD" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="newDataStorageCapacity" promptText="Объем памяти, Гб" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="newDataStorageInterface" promptText="Интерфейс" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="newDataStorageBuffer" promptText="Буфер, Мб" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="computerBoxInfoPane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label fx:id="computerBoxNameLabel" prefHeight="18.0" prefWidth="130.0" GridPane.columnIndex="1" />
+                              <Label fx:id="computerBoxPriceLabel" prefHeight="18.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Тип" GridPane.rowIndex="2" />
+                              <Label fx:id="computerBoxType" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="computerBoxChangePane">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <TextField fx:id="newComputerBoxName" promptText="Название" GridPane.columnIndex="1" />
+                              <TextField fx:id="newComputerBoxPrice" promptText="Стоимость, б.р." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="confirmComputerBox" mnemonicParsing="false" onAction="#changeComputerBox" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Тип" GridPane.rowIndex="2" />
+                              <TextField fx:id="newComputerBoxType" promptText="Тип корпуса" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane fx:id="processorInfoPane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Название" />
+                              <Label text="Стоимость" GridPane.rowIndex="1" />
+                              <Label text="Тактовая частота" GridPane.rowIndex="2" />
+                              <Label text="Архитектура" GridPane.rowIndex="6" />
+                              <Label fx:id="processorNameLabel" GridPane.columnIndex="1" />
+                              <Label fx:id="processorPriceLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="processorClockLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="processorArchitectLabel" prefHeight="18.0" prefWidth="114.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Количество ядер" GridPane.rowIndex="3" />
+                              <Label text="Размер кэша" GridPane.rowIndex="4" />
+                              <Label text="Техпроцесс" GridPane.rowIndex="5" />
+                              <Label fx:id="processorCoreLabel" prefHeight="18.0" prefWidth="114.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="processorCacheLabel" prefHeight="18.0" prefWidth="114.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="processorTechProcessLabel" prefHeight="18.0" prefWidth="114.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

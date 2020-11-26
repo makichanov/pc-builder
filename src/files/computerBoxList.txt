@@ -1,0 +1,7 @@
+id|name|price|type|
+0|Cooler Master MasterCase H100|139.0|Mini Tower|
+0|Chieftec Chieftronic M1|218.0|Mini Tower|
+0|DeepCool Matrexx 30|67.0|Mini Tower|
+0|AeroCool Streak|55.0|Midi Tower|
+0|be quiet PURE BASE 500DX BGW38|386.0|Midi Tower|
+0|DeepCool Matrexx 50 ADD-RGB 4F DP-ATX-MATREXX50-AR|157.0|Midi Tower|
