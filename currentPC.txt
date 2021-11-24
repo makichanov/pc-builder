@@ -1,9 +1,9 @@
-Процессор: AMD Ryzen 7 2700
-Видеокарта: AMD Radeon RX 570
-Материнская плата: MSI MPG Z490 Gaming Plus
-Оперативная память: G Skill Aegis 2x8GB DDR4 PC4-25600
+Процессор: AMD Ryzen 5 3600
+Видеокарта: NVIDIA GeForce GTX 1650
+Материнская плата: MSI X570-A Pro
+Оперативная память: HyperX Predator 16GB DDR4 PC4-25600
 Блок питания: Chieftec Power Smart GPS-750C
 Запоминающее устройство: A-Data XPG Spectrix S40G RGB 512GB AS40G-512GT-C
 Корпус ПК: DeepCool Matrexx 50 ADD-RGB 4F DP-ATX-MATREXX50-AR
 
-Итоговая цена:2051.79 б.р.
+Итоговая цена:2011.67 б.р.
